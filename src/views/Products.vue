@@ -1,7 +1,8 @@
 <template>
     <div>
         <h1>Products List</h1>
-        <b-table striped hover :items="products" :fields="fields"></b-table>
+        <b-table striped hover :items="products" :fields="fields" :per-page="pageSize" :current-page="pageIndex"></b-table>
+        <b-pagination size="md" :total-rows="products.length" v-model="pageIndex" :per-page="pageSize"></b-pagination>
     </div>
 </template>
 
@@ -13,6 +14,8 @@ export default {
         return{
             message:'Project2',
             products: [],
+            pageSize:10,
+            pageIndex:1,
             fields:[{
                 key:'id',
                 sortable : true
