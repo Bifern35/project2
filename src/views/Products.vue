@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld.vue'
+import axios from 'axios'
 export default {
     name: 'products',
     components:{
@@ -16,6 +16,13 @@ export default {
         return{
             message:'Project2'
         }
+    },
+    mouted(){
+        axios
+        .get('https://young-beyond-66471.herokuapp.com/api/products/')
+        .then(function(response){
+            console.log(response.data)
+        })
     }
 }
 </script>
